@@ -33,8 +33,9 @@ IntArr* get_count_arr(IntArr* int_arr)
     res->arr = calloc(max1->val + 1, sizeof(int));
     res->length = max1->val + 1;
     free(max1);
-
-    for (int i = 0; i < BUFFER_SIZE; ++i)
+    printf("before count: ");
+    print_int_arr(res->length, res->arr);
+    for (int i = 0; i < int_arr->length; ++i)
     {
         res->arr[int_arr->arr[i]]++;
     }
