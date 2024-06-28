@@ -26,10 +26,18 @@ Max* get_max(IntArr* int_arr)
     return res;
 }
 
-IntArr* get_count_arr(IntArr* arr)
+IntArr* get_count_arr(IntArr* int_arr)
 {
     IntArr* res = malloc(sizeof(IntArr));
-    Max* m1 = get_max(arr);
+    Max* max1 = get_max(int_arr);
+    res->arr = calloc(max1->val + 1, sizeof(int));
+    res->length = max1->val + 1;
+    free(max1);
+
+    for (int i = 0; i < BUFFER_SIZE; ++i)
+    {
+        res->arr[int_arr->arr[i]]++;
+    }
     return res;
 }
 
